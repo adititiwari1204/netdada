@@ -1,0 +1,44 @@
+Objective:
+To monitor real-time system resources (CPU, memory, disk, and network usage) using Netdata installed through Docker.
+Steps Performed:
+1. Installed Docker:
+
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io -y
+2. Started and Enabled Docker Service:
+
+sudo systemctl start docker
+sudo systemctl enable docker
+3. Added User to Docker Group (to avoid permission issues):
+
+sudo usermod -aG docker $USER
+4. Verified Docker Installation:
+
+docker ps
+docker --version
+5. Pulled the Netdata Image:
+
+docker pull netdata/netdata
+6. Ran the Netdata Container:
+
+docker run -d --name=netdata -p 19999:19999 netdata/netdata
+7. Opened Port 19999 in AWS EC2 Security Group:
+- Type: Custom TCP
+- Port: 19999
+- Source: 0.0.0.0/0
+8. Accessed Dashboard:
+
+http://<public-ip>:19999
+
+Observed real-time monitoring of:
+- CPU usage
+- Memory usage
+- Disk I/O
+- Network performance
+9. Captured Screenshot of the running Netdata dashboard.
+Observation:
+Netdata provides a web-based dashboard that continuously monitors system health, processes, and performance in real time with minimal setup.
+Conclusion:
+Successfully installed and configured Netdata using Docker to visualize and monitor system resource usage in real time.
+Screenshot Placeholder:
+Insert your dashboard screenshot here.
