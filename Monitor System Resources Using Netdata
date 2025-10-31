@@ -5,7 +5,7 @@ Steps Performed:
 
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io -y
-2. Started and Enabled Docker Service:
+2. Started and Enabled Docker Service:  
 
 sudo systemctl start docker
 sudo systemctl enable docker
